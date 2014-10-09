@@ -8,6 +8,7 @@ var Element = function(dom, callback){
 * Sends a callback to a class that is controlling the element
 **/
 Element.prototype.click = function(){
+	this.highlight(function(){})
 	this.callback(this);
 };
 
