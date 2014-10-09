@@ -1,0 +1,49 @@
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+#score{
+	font-family: 'Shadows Into Light', cursive;
+	text-align: center;
+	padding: 20px;
+}
+
+#counter{
+	font-family: 'Shadows Into Light', cursive;
+	text-align: center;
+	padding: 20px;
+}
+
+a.play
+{ font-family: 'Shadows Into Light', cursive; }
+
+.container
+{ width:300px; height:300px; border:20px solid #222; margin:auto; position:relative; border-radius:50%; overflow:hidden }
+
+.btn
+{ width:150px; height:150px; display:inline-block; margin:0 -4px -4px 0; background-image:linear-gradient(45deg, rgba(0,0,0,.2), rgba(255,255,255,.2)) }
+
+.btn.active:hover
+{ opacity:0.8 }
+
+#b1
+{ background-color:#3eb767; }
+
+#b2
+{ background-color:#ea232a; }
+
+#b3
+{ background-color:#f0d313; }
+
+#b4
+{ background-color:#0cbdf1; }
+
+.highlight
+{ background-image:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4)); }
+
+.controls
+{ background:#222; width:150px; height:150px; border-radius:50%; position:absolute; top:25%; left:25%; line-height:150px }
+
+.controls a#play
+{ color:#fff; text-decoration:none; font-size:20px;  display:block; margin:auto; text-align:center; text-transform:uppercase }
+
+.controls a#play.active:hover
+{ color:#c00 }
