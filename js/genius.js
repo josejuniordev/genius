@@ -1,3 +1,9 @@
+/*
+* Genius core
+* @author L. Mazzetto
+* @version 0.5
+* @module
+*/
 var Genius = (function(){
 
 	var elements = [
@@ -17,15 +23,16 @@ var Genius = (function(){
 	};
 
 	/**
-	* Generates a random number from an initial
-	* value and a final value
+	* Generates a random number from an initial value and a final value
+	* @param {Number} initialValue
+	* @param {Number} finalValue
 	**/
-	function randomize(initial_value, final_value){
-		return Math.floor(Math.random() * final_value) + initial_value;
+	function randomize(initialValue, finalValue){
+		return Math.floor(Math.random() * finalValue) + initialValue;
 	};
 
 	/**
-	*
+	* Appends a random value to the sequence
 	**/
 	function generate(){
 		score++;
@@ -62,42 +69,45 @@ var Genius = (function(){
 	**/
 	function select(element){
 		if (selectedSequence.length < sequence.length){
-			selectedSequence.push(element);
+			selectedSequence.push(element)
 
 			var response = {
 				"id":0,
 				"counter":selectedSequence.length,
 				"total":sequence.length,
-			};
+			}
 
 			if(selectedSequence[selectedSequence.length-1]
 						!= elements[sequence[selectedSequence.length-1]]){
 
-				response["id"] = 0;
+				response["id"] = -1
 				return response
 			}
 
 			if (selectedSequence.length == sequence.length){
-				response["id"] = 2;
-				return response;
+				response["id"] = 1;
+				return response
 			}
 
-			response["id"] = 1;
-			return response;
+			response["id"] = 0
+			return response
 		}
-	};
+	}
 
 	/**
 	* Prepares the initial configuration
+	* @param {Object} config
 	**/
 	function init(config){
-		elements = config.elements;
-		initialValue = config.initialValue || 2;
+		elements = config.elements
+		initialValue = config.initialValue || 3
 
-		for (var i=0; i<initialValue; i++){
-			sequence.push(randomize(0,elements.length));
+		// remove 1 from initial value because later
+		// we will increase it on the play event
+		for (var i=0; i<initialValue-1; i++){
+			sequence.push(randomize(0, elements.length))
 		}
-	};
+	}
 
 	return {
 		"init" : init,
