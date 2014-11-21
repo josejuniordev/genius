@@ -2,10 +2,10 @@
 
 	// creates the elements with a callback event
 	var elements = [
-		new Element(document.getElementById("b1"), elementClickCallbackEvent),
-		new Element(document.getElementById("b2"), elementClickCallbackEvent),
-		new Element(document.getElementById("b3"), elementClickCallbackEvent),
-		new Element(document.getElementById("b4"), elementClickCallbackEvent)
+		new Genius.Element(document.getElementById("b1"), elementClickCallbackEvent),
+		new Genius.Element(document.getElementById("b2"), elementClickCallbackEvent),
+		new Genius.Element(document.getElementById("b3"), elementClickCallbackEvent),
+		new Genius.Element(document.getElementById("b4"), elementClickCallbackEvent)
 	]
 
 	/*
