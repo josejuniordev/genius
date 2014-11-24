@@ -39,6 +39,10 @@ a.play
 .highlight
 { background-image:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4)); }
 
+.clicked
+{ box-shadow: -4px -4px 10px #555 inset; background-image: linear-gradient(24deg, rgba(0,0,0,.2), rgba(0,0,0,.5)); }
+
+
 .controls
 { background:#222; width:150px; height:150px; border-radius:50%; position:absolute; top:25%; left:25%; line-height:150px }
 
