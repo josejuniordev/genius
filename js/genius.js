@@ -6,11 +6,17 @@
 */
 var Genius = (function(){
 
+	// elements that were created
+	var elements = [],
+	 	sequence = [],
+	 	selectedSequence = [],
+	 	score = 0;
+
 	/**
 	* A constructor of genius element
 	* @constructor
 	**/
-	var Element = function(dom, callback){
+	function Element(dom, callback){
 		var self = this
 		this.DOM = dom
 		this.callback = callback
@@ -21,21 +27,28 @@ var Genius = (function(){
 	* sends a callback to a class that is controlling the element
 	**/
 	Element.prototype.click = function(){
-		this.highlight(function(){})
 		this.callback(this)
-
-		// TODO: remove the highlight and add another class
-		// when the user clicks
+		this.DOM.classList.add("clicked")
 	}
 
 	Element.prototype.active = function(isActive){
 		var self = this;
 
 		if(isActive){
-			this.DOM.onclick = function(){ self.click(self) }
+			// mouse down
+			this.DOM.onmousedown = function(){
+				self.click(self)
+			}
+
+			// mouse up
+			this.DOM.onmouseup = function(){
+				self.DOM.classList.remove("clicked")
+			}
+
 			this.DOM.classList.add("active")
 		} else {
-			this.DOM.onclick = function(){}
+			// resets
+			this.DOM.onmousedown = function(){}
 			this.DOM.classList.remove("active")
 		}
 	}
@@ -50,12 +63,6 @@ var Genius = (function(){
 		var self = this
 		setTimeout(function(){ self.hide(callback) }, 500)
 	}
-
-	// elements that were created
-	var elements = [],
-	 	sequence = [],
-	 	selectedSequence = [],
-	 	score = 0;
 
  	/**
 	* Returns the score
