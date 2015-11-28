@@ -1,5 +1,6 @@
 (function(){
 
+
 	// creates the elements with a callback event
 	var elements = [
 		new Genius.Element(document.getElementById("b1"), elementClickCallbackEvent),
@@ -7,6 +8,12 @@
 		new Genius.Element(document.getElementById("b3"), elementClickCallbackEvent),
 		new Genius.Element(document.getElementById("b4"), elementClickCallbackEvent)
 	]
+	, $btnPlay = document.getElementById("play")
+	,$controls = document.getElementById("controls")
+	, oldPlayValue = $btnPlay.innerHTML
+	, delayPlay = 1000; // milisegundos
+
+
 
 	/*
 	* Callback event of an element, this event is triggered on click
@@ -19,16 +26,24 @@
 		// gets the response from genius core
 		switch(response.id){
 			case -1:
-				alert("Você errou.")
+				setTimeout(function(){
+					$controls.classList.remove("playing")
+					addBtnLabel("Você errou.")
+				}, 800)
+
 				setElementsAsActive(false)
 				break
 			case 0:
-				console.log("Ok.")
+				//addBtnLabel("OK")
 				counter.innerHTML = response.counter
 				break
 			case 1:
-				alert("Proximo.");
 				counter.innerHTML = response.counter
+				setTimeout(function(){
+					$controls.classList.remove("playing")
+					addBtnLabel("Próximo")
+				}, 800)
+
 				addPlayEvent()
 				break
 		}
@@ -61,8 +76,8 @@
 	* Removes the play event
 	*/
 	function removePlayEvent(){
-		document.getElementById("play").removeEventListener("click", play)
-		document.getElementById("play").classList.remove("active")
+		$btnPlay.removeEventListener("click", play)
+		$btnPlay.classList.remove("active")
 		updateScore()
 	}
 
@@ -70,9 +85,16 @@
 	* Adds the play event
 	*/
 	function addPlayEvent(){
-		document.getElementById("play").addEventListener("click", play)
-		document.getElementById("play").classList.add("active")
+		$btnPlay.addEventListener("click", play)
+		$btnPlay.classList.add("active")
 		enableElements(false)
+	}
+
+	/*
+	*
+	*/
+	function addBtnLabel(label){
+		$btnPlay.innerHTML = label;
 	}
 
 	/*
@@ -84,11 +106,21 @@
 		removePlayEvent() // removes play event
 		enableElements(false)
 
+		$controls.classList.add("playing")
+		addBtnLabel("")
+
+
 		// inits the round and trigger a callback to enable all
 		// elements when the animation was ended.
-		Genius.play(function(){
-			enableElements(true)
-		})
+
+		setTimeout(function(){
+			Genius.play(function(){
+				enableElements(true)
+			})
+		}, delayPlay)
+
+
+		console.log("play");
 
 		updateScore()
 	}

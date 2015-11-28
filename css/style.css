@@ -12,6 +12,9 @@
 	padding: 20px;
 }
 
+a
+{ outline: none; }
+
 a.play
 { font-family: 'Shadows Into Light', cursive; }
 
@@ -22,7 +25,7 @@ a.play
 { width:150px; height:150px; display:inline-block; margin:0 -4px -4px 0; background-image:linear-gradient(45deg, rgba(0,0,0,.2), rgba(255,255,255,.2)) }
 
 .btn.active:hover
-{ opacity:0.8 }
+{ opacity:0.95 }
 
 #b1
 { background-color:#3eb767; }
@@ -40,14 +43,17 @@ a.play
 { background-image:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4)); }
 
 .clicked
-{ box-shadow: -4px -4px 10px #555 inset; background-image: linear-gradient(24deg, rgba(0,0,0,.2), rgba(0,0,0,.5)); }
+{ background-image: linear-gradient(24deg, rgba(0,0,0,.4), rgba(0,0,0,.4)); }
 
 
 .controls
-{ background:#222; width:150px; height:150px; border-radius:50%; position:absolute; top:25%; left:25%; line-height:150px }
+{ background:#222; width:150px; height:150px; border-radius:50%; position:absolute; top:25%; left:25%; line-height:150px; transition: all .2s; -webkit-transition: all .2s; -moz-transition: all .2s; }
 
 .controls a#play
 { color:#fff; text-decoration:none; font-size:20px;  display:block; margin:auto; text-align:center; text-transform:uppercase }
+
+.controls.playing
+{ transform: scale(.2) }
 
 .controls a#play.active:hover
 { color:#c00 }

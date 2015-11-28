@@ -6,6 +6,26 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+	<audio preload="auto" onloadeddata="" id="audiocpt">
+		<source src="audio/2octaves.mp3" type="audio/mp3" />
+		<source src="audio/2octaves.ogg" type="audio/ogg" />
+	</audio>
+	<audio preload="auto" onloadeddata="" id="audiob1">
+		<source src="audio/2octaves.mp3" type="audio/mp3" />
+		<source src="audio/2octaves.ogg" type="audio/ogg" />
+	</audio>
+	<audio preload="auto" onloadeddata="" id="audiob2">
+		<source src="audio/2octaves.mp3" type="audio/mp3" />
+		<source src="audio/2octaves.ogg" type="audio/ogg" />
+	</audio>
+	<audio preload="auto" onloadeddata="" id="audiob3">
+		<source src="audio/2octaves.mp3" type="audio/mp3" />
+		<source src="audio/2octaves.ogg" type="audio/ogg" />
+	</audio>
+	<audio preload="auto" onloadeddata="" id="audiob4">
+		<source src="audio/2octaves.mp3" type="audio/mp3" />
+		<source src="audio/2octaves.ogg" type="audio/ogg" />
+	</audio>
 
 	<div id="score">
 		Score <div id="score-number">0</div>
@@ -17,12 +37,12 @@
 		<a href="#" id="b3" class="btn"></a>
 		<a href="#" id="b4" class="btn"></a>
 
-		<div class="controls">
-			<a href="#" id="play" class="play">&#9654; Play</a>
+		<div class="controls" id="controls">
+			<a href="#" id="play" class="play">&#9654; <span class="label">Play</span> <span class="next"></span></a>
 		</div>
 
 		<div class="modal-info">
-			
+
 		</div>
 	</div>
 
@@ -30,7 +50,7 @@
 		<span id="counter-number">0</span>/<span id="counter-total">0</span>
 	</div>
 
-	<script type="text/javascript" src="js/element.js"></script>
+	<script type="text/javascript" src="js/audio.js"></script>
 	<script type="text/javascript" src="js/genius.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
